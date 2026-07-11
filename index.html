@@ -108,13 +108,17 @@
 <script>
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-  fetch('cards.json')
+  // On Vercel, load data + scans straight from the GitHub repo so pushes go live without a redeploy
+  const local = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const BASE = local ? '' : 'https://raw.githubusercontent.com/smugfox/psa_to_cgc/main/';
+
+  fetch(BASE + 'cards.json')
     .then(r => r.json())
     .then(({ cards, updated }) => {
       document.getElementById('cards').innerHTML = cards.map(c => {
         const scans = [
-          { label: `PSA ${esc(c.psa.grade)}`, cert: c.psa.cert, src: `${c.folder}/psa-${c.psa.cert}-front.jpg`, back: `${c.folder}/psa-${c.psa.cert}-back.jpg` },
-          { label: `CGC ${esc(c.cgc.grade)}`, cert: c.cgc.cert, src: `${c.folder}/cgc-${c.cgc.cert}-front.jpg`, back: `${c.folder}/cgc-${c.cgc.cert}-back.jpg` },
+          { label: `PSA ${esc(c.psa.grade)}`, cert: c.psa.cert, src: `${BASE}${c.folder}/psa-${c.psa.cert}-front.jpg`, back: `${BASE}${c.folder}/psa-${c.psa.cert}-back.jpg` },
+          { label: `CGC ${esc(c.cgc.grade)}`, cert: c.cgc.cert, src: `${BASE}${c.folder}/cgc-${c.cgc.cert}-front.jpg`, back: `${BASE}${c.folder}/cgc-${c.cgc.cert}-back.jpg` },
         ];
         return `
         <article class="card">
