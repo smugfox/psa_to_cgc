@@ -117,8 +117,10 @@
     .then(({ cards, updated }) => {
       document.getElementById('cards').innerHTML = cards.map(c => {
         const scans = [
-          { label: `PSA ${esc(c.psa.grade)}`, cert: c.psa.cert, src: `${BASE}${c.folder}/psa-${c.psa.cert}-front.jpg`, back: `${BASE}${c.folder}/psa-${c.psa.cert}-back.jpg` },
-          { label: `CGC ${esc(c.cgc.grade)}`, cert: c.cgc.cert, src: `${BASE}${c.folder}/cgc-${c.cgc.cert}-front.jpg`, back: `${BASE}${c.folder}/cgc-${c.cgc.cert}-back.jpg` },
+          { label: `PSA ${esc(c.psa.grade)} · front`, src: `${BASE}${c.folder}/psa-${c.psa.cert}-front.jpg` },
+          { label: `PSA ${esc(c.psa.grade)} · back`, src: `${BASE}${c.folder}/psa-${c.psa.cert}-back.jpg` },
+          { label: `CGC ${esc(c.cgc.grade)} · front`, src: `${BASE}${c.folder}/cgc-${c.cgc.cert}-front.jpg` },
+          { label: `CGC ${esc(c.cgc.grade)} · back`, src: `${BASE}${c.folder}/cgc-${c.cgc.cert}-back.jpg` },
         ];
         return `
         <article class="card">
@@ -134,8 +136,8 @@
           <div class="scans">
             ${scans.map(s => `
               <figure class="scan">
-                <a href="${s.src}" target="_blank" rel="noopener"><img src="${s.src}" alt="${esc(c.name)} — ${s.label} front scan" loading="lazy"></a>
-                <figcaption><span>${s.label}</span><span><a href="${s.src}" target="_blank" rel="noopener">front</a> · <a href="${s.back}" target="_blank" rel="noopener">back</a></span></figcaption>
+                <a href="${s.src}" target="_blank" rel="noopener"><img src="${s.src}" alt="${esc(c.name)} — ${s.label} scan" loading="lazy"></a>
+                <figcaption><span>${s.label}</span><a href="${s.src}" target="_blank" rel="noopener">full res</a></figcaption>
               </figure>`).join('')}
           </div>
           <div class="facts">
