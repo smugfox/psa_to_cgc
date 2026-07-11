@@ -1,0 +1,36 @@
+{
+  "updated": "2026-07-11",
+  "cards": [
+    {
+      "name": "Giovanni's Persian",
+      "set": "Gym Challenge",
+      "number": "8/132",
+      "year": 2000,
+      "variant": "Holo · 1st Edition",
+      "folder": "cards/2000-gym-challenge-08-giovannis-persian-1st-ed",
+      "psa": {
+        "cert": "63074589",
+        "grade": "NM-MT 8",
+        "url": "https://www.psacard.com/cert/63074589/psa",
+        "estimate": "$274",
+        "pop": 773,
+        "higher": 790
+      },
+      "cgc": {
+        "cert": "6066497018",
+        "grade": "Pristine 10",
+        "url": "https://www.cgccards.com/certlookup/6066497018/",
+        "pop": 8,
+        "higher": 0,
+        "topPop": true
+      },
+      "sales": [
+        { "date": "07/06/26", "price": "$285.00", "venue": "eBay · Best Offer" },
+        { "date": "06/28/26", "price": "$267.96", "venue": "eBay · Auction" },
+        { "date": "06/21/26", "price": "$231.56", "venue": "eBay · Auction" },
+        { "date": "06/11/26", "price": "$274.99", "venue": "eBay · Auction" },
+        { "date": "06/06/26", "price": "$290.00", "venue": "Fanatics · Best Offer" }
+      ]
+    }
+  ]
+}
